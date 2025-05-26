@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>社員情報検索</title>
+</head>
+<form>
+	
+	<div class="search_top">
+		<div class="title">
+			<h2>社員情報検索</h2>
+		</div>
+		<div class="info">
+			<div th:replace="~{header :: header}"></div>
+		</div>
+	</div>
+	
+	<div class="header-buttons">
+		<a th:href="@{/top}"><button type="button">メニュー</button></a>
+		<a th:href="@{/user/register}"><button type="button">登録</button></a>
+	</div>
+	
+	<form th:action="@{/user/list}" method="get" class="search-form">
+		<div th:if="${idError}" class="error-message" th:text="${idError}"></div>
+		<div th:if="${ageFromError}" class="error-message" th:text="${ageFromError}"></div>
+		<div th:if="${ageToError}" class="error-message" th:text="${ageToError}"></div>
+		<div th:if="${ageRangeError}" class="error-message" th:text="${ageRangeError}"></div>
+		<div th:if="${endDateRangeError}" class="error-message" th:text="${endDateRangeError}"></div>
+
+		
+		<label for="id">社員ID</label>
+		<input type="number" id="id" name="id" th:value="${param.id}"/>
+		
+		<label for="name">社員名</label>
+        <input type="text" id="name" name="name" th:value="${param.name}"/>
+        
+        <label for="ageFrom">年齢</label>
+        <input type="text" id="ageFrom" name="ageFrom" th:value="${param.ageFrom}"/> 〜
+        <input type="text" id="ageTo" th:value="${param.ageTo}">
+        
+        <label for="startFrom">開始日</label>
+		<input type="date" id="startFrom" name="startFrom" th:value="${param.startFrom}"/> ～
+		<input type="date" name="startTo" th:value="${param.startTo}"/>
+		
+		<label for="endFrom">終了日</label>
+        <input type="date" id="endFrom" name="endFrom" th:value="${param.endFrom}"/> ～
+        <input type="date" name="endTo" th:value="${param.endTo}"/>
+        
+        <div class="search_buttons">
+			<button type="submit" class="search">検索</button>
+            <button type="reset" class="clear">クリア</button>
+		</div>
+        
+    </form>
+   
+	
+	<div class="copyright">
+	 	<div th:replace="~{footer :: footer}"></div>
+	</div>
+
+</body>
+</html>

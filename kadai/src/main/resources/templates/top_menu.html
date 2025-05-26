@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>メインメニュー</title>
+<style>
+	
+	.top {
+		display: flex;
+		border-bottom: solid;
+		align-items: flex-end;
+		justify-content: space-between;
+	}
+	
+	.info {
+		margin-left: auto;
+		text-align: right;
+		font-size: 20px;
+	}
+	
+	.info p {
+		margin: 16px;
+	}
+	
+	.title h2 {
+		font-weight: lighter;
+		font-size: 30px;
+		color: #F00;
+		margin-bottom: 16px;
+	}
+	
+	.menu {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		gap: 10px;
+		padding: 20px 0;
+	}
+	
+	.menu-item {
+		padding: 25px 0;
+	}
+	
+	.menu-item a {
+		display: inline-block;
+		padding: 10px 0px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #000;
+		border-bottom: 1px solid #000;
+		border-radius: 0px;
+		margin: 0 10px;
+	}
+	
+	.copyright {
+		position: fixed;
+    	bottom: 0;
+    	right: 10px;
+	}
+	
+</style>
+</head>
+<body>
+	<div class="top">
+		<div class="title">
+			<h2>トップメニュー</h2>
+		</div>
+		<div class="info">
+			<div th:replace="~{header :: header}"></div>
+		</div>
+	</div>
+	
+	<div class="menu">
+		<div class="menu-item" th:each="item:${menuItems}">
+			<a th:href="${item.url}" th:text="${item.name}"></a>
+		</div>
+		
+	</div>
+		<div class="copyright">
+	 		<div th:replace="~{footer :: footer}"></div>
+		</div>
+</body>
+</html>
