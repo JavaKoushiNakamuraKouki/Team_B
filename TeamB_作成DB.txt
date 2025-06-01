@@ -1,0 +1,7 @@
+作成DB
+
+CREATE DATABASE kadai_system;
+USE kadai_system;
+CREATE TABLE users(id INT, name VARCHAR(50), age INT, start DATE, end DATE, pass VARCHAR(50));
+insert into users values(10001, '山田太朗', 20, '2025-04-01', '2026-03-31', 'a10001');
+insert into users values(10002, '田中花子', 22, '2024-08-10', '2027-06-12', 'b10002');
