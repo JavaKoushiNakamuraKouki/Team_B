@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,12 +21,7 @@ public class MyController {
 			return "redirect:/";
 		}
 		
-		//①ログイン情報
-		model.addAttribute("loginUser", loggedInUserName + "さん");
-		model.addAttribute("loginDateTime", LocalDateTime.now()
-		.format(DateTimeFormatter.ofPattern("yyyy/MM/dd　HH:mm:ss")));
-		
-		//②リンク
+		//リンク
 		List<MenuItem> menuItems = Arrays.asList(
 			new MenuItem("社員情報検索", "/user/search"),
 			new MenuItem("社員情報削除", "/user/delete"),
@@ -36,10 +29,6 @@ public class MyController {
 			new MenuItem("社員情報更新", "/user/update")
 		);
 		model.addAttribute("menuItems", menuItems);
-		
-		//③フッター
-		model.addAttribute("copyright", "Copyright © 2025");
-		model.addAttribute("teamName", "JavaStudy team-b");
 		
 		return "top_menu";
 	}

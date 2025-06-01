@@ -3,32 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>メインメニュー</title>
+<link rel="stylesheet" th:href="@{/css/common.css}">
 <style>
-	
-	.top {
-		display: flex;
-		border-bottom: solid;
-		align-items: flex-end;
-		justify-content: space-between;
-	}
-	
-	.info {
-		margin-left: auto;
-		text-align: right;
-		font-size: 20px;
-	}
-	
-	.info p {
-		margin: 16px;
-	}
-	
-	.title h2 {
-		font-weight: lighter;
-		font-size: 30px;
-		color: #F00;
-		margin-bottom: 16px;
-	}
-	
+
 	.menu {
 		display: grid;
 		grid-template-columns: 200px 200px;
@@ -49,12 +26,6 @@
 		border-bottom: 1px solid #000;
 		border-radius: 0px;
 		margin: 0 10px;
-	}
-	
-	.copyright {
-		position: fixed;
-    	bottom: 0;
-    	right: 10px;
 	}
 	
 </style>
