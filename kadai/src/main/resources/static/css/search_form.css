@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 	.header-buttons {
-    	margin: 15px 0px;
+    	margin: 15px 0px 5px;
 	}
 	
 	.header-buttons button {
@@ -21,6 +21,11 @@
 	
 	.header-buttons a button {
 		text-decoration: none;
+	}
+	
+	.error-message {
+		margin-bottom: 10px;
+		color: red;
 	}
 	
 	.search-form {
@@ -156,13 +161,12 @@
 
 
 	/* 検索結果 */
-	
 	.search-result-container {
 		display: flex;
 		justify-content: space-between; 
 		align-items: center; 
 		margin-bottom: 10px; 
-		border-top: 1px solid #000;
+		border-top: solid #000;
 		padding-top: 10px;
 	}
 		

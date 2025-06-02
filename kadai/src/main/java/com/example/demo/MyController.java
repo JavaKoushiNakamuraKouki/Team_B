@@ -24,7 +24,7 @@ public class MyController {
 		//リンク
 		List<MenuItem> menuItems = Arrays.asList(
 			new MenuItem("社員情報検索", "/user/search"),
-			new MenuItem("社員情報削除", "/user/delete"),
+			new MenuItem("社員情報削除", "/list"), // /user/delete
 			new MenuItem("社員情報登録", "/user/register"),
 			new MenuItem("社員情報更新", "/user/update")
 		);
