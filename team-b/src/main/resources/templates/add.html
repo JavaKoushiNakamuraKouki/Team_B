@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/add.css}">
+<title>新規登録</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div class="container">
+	<form th:action="@{/user/register}" th:object="${registerForm}" method="post">
+		
+		<div class="mb-3">
+			<label for="name" class="form-label">社員名</label>
+			<input id="name" class="form-control" type="text" th:field="*{name}" required>
+			<p style="color: red;" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+		</div>
+		<div class="mb-3">
+			<label for="age" class="form-label">年齢</label>
+			<input id="age" class="form-control" type="number" required th:field="*{age}">
+			<p style="color: red;" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+		</div>
+		<div class="mb-3">
+			<label for="pass" class="form-label">パスワード</label>
+			<input id="pass" class="form-control" type="password" th:field="*{pass}">
+			<p style="color: red;" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"pattern="[a-zA-Z0-9]+" required>></p>
+		</div>
+		<div class="mb-3">
+			<label for="confirmPass" class="form-label">パスワード確認</label>
+			<input id="confirmPass" class="form-control" type="password" th:field="*{confirmPass}">
+			<p style="color: red;" th:if="${#fields.hasErrors('passwordMatched')}" th:errors="*{passwordMatched}"></p>
+
+		</div>
+		<div class="button-group">
+			<form th:action="@{/user/register}" method="post">
+			<input type="submit" class="btn btn-primary" value="新規登録">
+		</form>	
+			<form th:action="@{/search}" method="get">
+	    	<button type="submit" class="btn btn-secondary">戻る</button>
+		</form>
+
+</body>
+</html>

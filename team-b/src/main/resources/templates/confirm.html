@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/confirm.css}">
+    <title>登録確認</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <h2>ユーザー登録確認</h2>
+
+    <table class="table">
+        <tr>
+            <th>名前</th>
+            <td th:text="${registeredUser.name}"></td>
+        </tr>
+        <tr>
+            <th>年齢</th>
+            <td th:text="${registeredUser.age}"></td>
+        </tr>
+        <tr>
+            <th>パスワード</th>
+            <td th:text="'*****'"></td>
+        </tr>
+    </table>
+
+    <div class="mb-3">
+		<a href="/user/complete" class="btn btn-primary">登録</a>
+        <a href="/user/register" class="btn btn-secondary">戻る</a>
+    </div>
+</body>
+</html>
