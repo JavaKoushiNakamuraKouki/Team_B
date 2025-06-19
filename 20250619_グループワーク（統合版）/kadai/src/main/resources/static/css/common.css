@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+	body {
+		font-family: sans-serif;
+    	margin: 0px 20px;
+	}
+
+	.top {
+		display: flex;
+		border-bottom: solid;
+		align-items: flex-end;
+		justify-content: space-between;
+	}
+	
+	.title h2 {
+		font-weight: lighter;
+		font-size: 30px;
+		color: #F00;
+		margin-bottom: 16px;
+	}
+	
+	.info {
+		margin-left: auto;
+		text-align: right;
+		font-size: 15px;
+	}
+	
+	.info p {
+		margin-top: 5px;
+		margin-bottom: 16px;
+	}
+	
+	.info p:first-child {
+		margin-bottom: 0px;
+	}
+	
+	.copyright {
+		position: fixed;
+    	bottom: 0;
+    	right: 10px;
+	}
