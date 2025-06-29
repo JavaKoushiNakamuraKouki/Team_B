@@ -1,0 +1,235 @@
+@charset "UTF-8";
+
+	.header-buttons {
+    	margin: 15px 0px 5px;
+	}
+	
+	.header-buttons button {
+		padding: 0px 30px 0px 0px;
+		margin-right: 10px;
+		border: 1px solid #000;
+		border-radius: 0px;
+		cursor: pointer;
+		font-size: 1.5em;
+		
+	}
+	
+	.header-buttons a:nth-child(2) button { 
+		background-color:  #ffeb3b; 
+		color: #000;
+		padding: 0px 68.6px 0px 0px;
+	} 
+	
+	.header-buttons a button {
+		text-decoration: none;
+	}
+	
+	.error-message {
+		margin-bottom: 10px;
+		color: red;
+	}
+	
+	.search-form {
+		display: flex;
+		margin-bottom: 20px;
+		padding: 10px;
+		width: 90%;
+		position: relative;
+	}
+	
+	.search-input {
+		display: flex;
+		flex-direction: column;
+		margin-right: 20px;
+	}
+	
+	.form-row {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	
+	.form-row label {
+		width: 80px;
+		margin-right: 10px;
+		font-size: 1.5em;
+	}
+	
+	#id-label {
+		width: 80px;
+		text-align:left;
+	}
+	
+	#ageFrom-label {
+		width: 80px;
+		margin-left: 50px;
+		text-align:left;
+	}
+	
+	#name-label {
+		width: 80px;
+		text-align:left;
+	}
+	
+	#startFrom-label {
+		width: 80px;
+		text-align:left;
+	}
+	
+	#endFrom-label {
+		width: 80px;
+		text-align:left;
+	}
+	
+	.form-row input[type="text"] {
+		padding: 10px;
+		width: 150px;
+		border: 1px solid #000;
+		border-radius: 0px;
+		box-sizing: border-box;
+		margin-right: 5px;
+		font-size: 20px;
+	}
+	
+	.form-row .right-label {
+		width: 100px;
+		margin-left: auto;
+		margin-right: 10px;
+	}
+	
+	.form-row .right-label-end {
+		width: 100px;
+		margin-left: auto;
+		margin-right: 10px;
+	}
+	
+	.form-row .tilde {
+		margin: 0px 10px 0px 5px;
+	}
+	
+	.form-row .right-tilde {
+		margin-left: auto;
+		margin-right: 5px;
+	}
+
+	.search-buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-end;
+		
+		position: static; /* ★修正: 固定配置を解除 */
+		
+		top: 170px; 
+		right: 32px;
+ 
+		margin-top: 0;
+		margin-left: 0;
+		padding-left: 0;
+		
+		/* ★追加: Flexアイテムとして配置されるので、マージンで位置を調整 */
+    	margin-left: 20px; /* search-input との間のスペース */
+    	flex-shrink: 0; /* ★追加: 縮まないように */
+	}
+
+	.search-buttons button {
+		padding: 10px 35px 10px 0px;
+		border: 1px solid #000;
+		border-radius: 0px;
+		cursor: pointer;
+		font-size: 1.5em;
+		margin-top: 10px;
+		min-width: 100px; 
+		width: auto;
+		text-align: left;
+		margin-top: 10px;
+		white-space: nowrap; 
+	}
+
+	.search-buttons button.search {
+		background-color: #ffc107; 
+		text-align: left;
+		width: 100%;
+	}
+	
+	.search-buttons button.clear {
+		background-color: rgb(254, 255, 255); 
+		text-align: left;
+	}
+	
+	.form-row .empty-label {
+		width:  100px;
+		margin-left: auto;
+		margin-right: 10px;
+		visibility: hidden;
+	}
+	
+    .form-row:nth-child(3) .empty-label {
+		visibility: visible; 
+    }
+    
+
+	/* 検索結果 */
+	.search-result-container {
+		display: flex;
+		justify-content: space-between; 
+		align-items: center; 
+		margin-bottom: 10px; 
+		border-top: solid #000;
+		padding-top: 10px;
+	}
+		
+	.search-result {
+		margin-bottom: 10px;
+		color: #555;
+		font-size: 1.2em;
+	}
+	
+	.result-container {
+		display: flex;
+		align-items: flex-start;
+	}
+	
+	.result-table {
+	    width: 80%;
+	    border-collapse: collapse;
+	    margin-bottom: 20px;
+	    margin-right: 20px;
+	    border: 1px solid #000;
+	}
+	
+	.result-table th, .result-table td {
+	    border: 1px solid #000;
+	    padding: 8px;
+	    text-align: left;
+	    font-size: 1.2em;
+	}
+	
+	.result-table th {
+	    background-color: rgb(229, 236, 246);
+	}
+	
+	.update-link {
+	    text-decoration: none;
+	    color: #007bff;
+	}
+	
+	.delete-button {
+	    margin-left: 20px;
+	    margin-right: 20px;
+	    white-space: nowrap;
+	}
+	
+	.delete-button button {
+		padding: 5px 35px 5px 0px;
+	    border: 1px solid #000;
+	    border-radius: 0px;
+	    cursor: pointer;
+	    font-size: 1.5em;
+	    text-align: left;
+	    background-color: #ffeb3b; 
+	    min-width: 100px; /* ★追加: ボタンの最低幅を設定 */
+	}
+
+
+

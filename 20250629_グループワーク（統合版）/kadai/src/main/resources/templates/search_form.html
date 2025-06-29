@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>社員情報検索</title>
+<link rel="stylesheet" th:href="@{/css/common.css}">
+<link rel="stylesheet" th:href="@{/css/search_form.css}">
+</head>
+
+<body>
+	
+	<div class="top">
+		<div class="title">
+			<h2>社員情報検索</h2>
+		</div>
+		<div class="info">
+			<div th:replace="~{header :: header}"></div>
+		</div>
+	</div>
+	
+	<div class="header-buttons">
+		<a th:href="@{/top}"><button type="button">メニュー</button></a>
+		<a th:href="@{/user/register}"><button type="button">登録</button></a>
+	</div>
+	
+	<form th:action="@{/user/list}" method="get" class="search-form">
+		<div class="search-input">
+			<div th:each="error : ${errors}" class="error-message" th:text="${error}"></div>
+			
+			<div class="form-row">
+				<label for="id" id="id-label">社員ID</label>
+				<input type="text" id="id" name="id" th:value="${param.id}"/>
+				
+				<label for="ageFrom" id="ageFrom-label" class="right-label">年齢</label>
+		        <input type="text" id="ageFrom" name="ageFrom" th:value="${param.ageFrom}"/>
+		        <span class="tilde">〜</span>
+		        <input type="text" id="ageTo" name="ageTo" th:value="${param.ageTo}"/>
+			</div>
+			
+			<div class="form-row">
+				<label for="name" id="name-label">社員名</label>
+		        <input type="text" id="name" name="name" th:value="${param.name}"/>
+		        
+				<label for="startFrom" id="startFrom-label" class="right-label">開始日</label>
+				<input type="text" id="startFrom" name="startFrom" th:value="${param.startFrom}"/>
+				<span class="tilde">〜</span>
+				<input type="text" name="startTo" th:value="${param.startTo}"/>
+			</div>
+			
+			<div class="form-row">
+				<label for="endFrom" id="endFrom-label" class="right-label-end">終了日</label>
+		        <input type="text" id="endFrom" name="endFrom" th:value="${param.endFrom}"/>
+		        <span class="tilde">〜</span>
+		        <input type="text" name="endTo" th:value="${param.endTo}"/>
+			</div>
+        </div>
+        
+        <div class="search-buttons">
+			<button type="submit" class="search">検索</button>
+			<a th:href="@{/user/search}"><button type="button" class="clear">クリア</button></a>
+            <!-- <button type="reset">クリア</button> -->
+		</div>
+	 </form>
+	
+	<div class="search-result-container" th:if="${searchResultCount != null}">	
+		<div class="search-result" >
+			<span th:text="${searchResultCount}"></span>件
+		</div>
+		<form th:action="@{/user/list}" method="post" th:if="${users != null and !users.isEmpty()}">
+			<div class="delete-button">
+					<button type="submit">削除</button>
+			</div>
+		</form>
+	</div>
+		
+	<div th:if="${users == null or users.isEmpty()}">
+		<p th:if="${searchResultCount != null}">検索結果が見つかりませんでした。</p>
+	</div>	
+	
+	<!-- 検索結果テーブル -->
+	<form th:action="@{/user/list}" method="post" th:if="${users != null and !users.isEmpty()}">
+		<table class="result-table">
+			<thead>
+				<tr>
+					<th>選択</th>
+					<th>ID</th>
+					<th>氏名</th>
+					<th>年齢</th>
+					<th>開始日</th>
+					<th>終了日</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="user : ${users}">
+						<td>
+						<input type="checkbox" name="selectID" th:value="${user.id}" />
+					</td>
+					<td>
+						<a th:href="@{/user/update(id=${user.id})}" class="update-link" th:text="${user.id}"></a>
+					</td>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.age}"></td>
+					<td th:text="${#dates.format(user.start, 'yyyy/MM/dd')}"></td>
+					<td th:text="${#dates.format(user.end, 'yyyy/MM/dd')}"></td>
+				</tr>	
+			</tbody>
+		</table>
+	</form>
+	
+	<div class="copyright">
+	 	<div th:replace="~{footer :: footer}"></div>
+	</div>
+
+</body>
+</html>

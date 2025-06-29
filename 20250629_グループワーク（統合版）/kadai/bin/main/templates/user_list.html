@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" th:href="@{/css/user_list.css}">
+    <title>ユーザー削除</title>
+</head>
+<body>
+    <h2>ユーザー一覧</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>年齢</th>
+            <th>削除</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.age}"></td>
+            <td>
+                <form action="/user/delete" method="post">
+                    <input type="hidden" name="id" th:value="${user.id}">
+                    <button type="submit">削除</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+	<!-- 検索画面へ戻るボタン -->
+	<a href="/user/search">
+	    <button>戻る</button>
+	</a>
+
+</body>
+</html>

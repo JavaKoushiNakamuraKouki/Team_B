@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+/* メインコンテンツ */
+.container {
+    max-width: 100%; 
+    padding: 40px 0px; 
+    box-sizing: border-box; 
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.confirm-table { /* ★修正: クラス名を add.css との衝突を避けるために変更 */
+    max-width: 100%;
+    margin-bottom: 30px; /* テーブルとボタンの間の余白 */
+    padding: 10px; /* テーブルの内側パディング */
+    box-sizing: border-box; /* パディングを幅に含める */
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 15px 15px; /* セルのパディングを増やす */
+    text-align: left;
+    font-size: 1.1em; /* フォントサイズ */
+}
+
+.confirm-table th {
+    width: 100px; /* ラベルの幅に合わせる */
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 確認コメントのスタイル */
+.confirmation-message {
+    text-align: center;
+    margin-bottom: 30px; 
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+}
+.confirmation-message p {
+    margin: 0; 
+}
+
+/* ------------------------------------------------ */
+/* ボタンのスタイル (add.css から流用)             */
+/* ------------------------------------------------ */
+
+/* ボタンのグループ (add.cssと共通) */
+.button-group {
+    text-align: left;
+    margin-top: 40px; /* テーブルとの間隔を調整 */
+    /* border-top は confirm.html では不要な場合が多い */
+    /* padding-top も確認画面では不要な場合が多い */
+}
+
+/* フォームを button-group の中に置いた場合、form自体がFlexアイテムになるので、
+   formに対して Flexbox を設定してボタンを中央寄せにする */
+.button-group form {
+    display: inline-block; /* ボタンを横並びにするためにインラインブロック化 */
+    margin: 0; /* デフォルトマージンをリセット */
+    vertical-align: middle; /* 垂直方向の中央揃え */
+}
+
+
+/* ボタンの共通スタイル (add.cssと共通) */
+.btn {
+    padding: 12px 0px; /* 左右のパディングを増やしてボタンの見た目を調整 */
+    font-size: 17px; 
+    cursor: pointer;
+    text-decoration: none; 
+    display: inline-block; 
+    text-align: left; 
+    padding-left: 0px;
+    margin: 0 15px; /* ボタン間の左右マージン */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    min-width: 120px; 
+}
+
+/* プライマリボタン（登録する） */
+.btn-primary {
+    background-color: #ffc107; 
+    color: rgb(0, 0, 0); 
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* セカンダリボタン（戻る） */
+.btn-secondary {
+    background-color: rgb(254, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+}
+

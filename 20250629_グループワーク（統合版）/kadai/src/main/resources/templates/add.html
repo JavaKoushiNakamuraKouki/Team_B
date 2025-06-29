@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/common.css}">
+<link rel="stylesheet" th:href="@{/css/add.css}">
+<title>新規登録</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+</head>
+<body>
+	
+	<div class="top">
+		<div class="title">
+			<h2>社員情報登録（入力）</h2>
+		</div>
+		<div class="info">
+			<div th:replace="~{header :: header}"></div>
+		</div>
+	</div>
+	
+	<div class="container">
+	<form id="registerForm" th:action="@{/user/register_confirm}" th:object="${registerForm}" method="post">
+		
+		<div th:if="${#fields.hasAnyErrors()}" class="all-error-messages">
+            <p class="error-header">入力内容に誤りがあります。</p>
+            <ul class="error-list">
+                <li th:each="err : ${#fields.errors('global')}" th:text="${err}"></li>
+                <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                <li th:each="err : ${#fields.errors('age')}" th:text="${err}"></li>
+                <li th:each="err : ${#fields.errors('pass')}" th:text="${err}"></li>
+                <li th:each="err : ${#fields.errors('confirmPass')}" th:text="${err}"></li>
+                <li th:each="err : ${#fields.errors('passwordMatched')}" th:text="${err}"></li>
+                </ul>
+        </div>
+	
+		<div class="mb-3">
+			<label for="name" class="form-label">社員名</label>
+			<input id="name" class="form-control" type="text" th:field="*{name}" required>
+			<!-- <p class="error-message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p> -->
+		</div>
+
+		<div class="mb-3">
+			<label for="age" class="form-label">年齢</label>
+			<input id="age" class="form-control" type="number" required th:field="*{age}">
+			<!-- <p class="error-message" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p> -->
+		</div>
+
+		<div class="mb-3">
+			<label for="pass" class="form-label">パスワード</label>
+			<input id="pass" class="form-control" type="password" th:field="*{pass}" pattern="[a-zA-Z0-9]+" required>
+			<!-- <p class="error-message" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></p> -->
+		</div>
+
+		<div class="mb-3">
+			<label for="confirmPass" class="form-label">パスワード確認</label>
+			<input id="confirmPass" class="form-control" type="password" th:field="*{confirmPass}" required>
+			<!-- <p class="error-message" th:if="${#fields.hasErrors('passwordMatched')}" th:errors="*{passwordMatched}"></p> -->
+		</div>
+
+	</form> 
+	</div> 
+	
+		<div class="button-group">
+			<input type="submit" class="btn btn-primary" value="確認" form="registerForm"/>
+			<a th:href="@{/user/search}" class="btn btn-secondary">戻る</a>
+		</div>
+
+	
+	<div class="copyright">
+	 	<div th:replace="~{footer :: footer}"></div>
+	</div>
+	
+	</body>
+</html>
