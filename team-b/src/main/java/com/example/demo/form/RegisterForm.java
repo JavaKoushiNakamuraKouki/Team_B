@@ -2,6 +2,10 @@ package com.example.demo.form;
 
 
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -39,4 +43,9 @@ public class RegisterForm {
     public boolean isPasswordMatched() {
         return pass != null && confirmPass != null && pass.equals(confirmPass);
     }
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
 }
