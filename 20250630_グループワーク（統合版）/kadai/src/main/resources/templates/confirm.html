@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+	<link rel="stylesheet" th:href="@{/css/confirm.css}">
+    <title>登録確認</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+</head>
+<body>
+	
+	<div class="top">
+		<div class="title">
+			<h2>社員情報登録（確認）</h2>
+		</div>
+		<div class="info">
+			<div th:replace="~{header :: header}"></div>
+		</div>
+	</div>
+
+	<div class="container">
+	    <table class="confirm-table">
+	        <tr>
+	            <th>名前</th>
+	            <td th:text="${registerForm.name}"></td>
+	        </tr>
+	        <tr>
+	            <th>年齢</th>
+	            <td th:text="${registerForm.age}"></td>
+	        </tr>
+	        <tr>
+	            <th>パスワード</th>
+	            <td th:text="'******'"></td>
+	        </tr>
+	    </table>
+	    
+	    <div class="confirmation-message">
+            <p>こちらで登録します。よろしいでしょうか？</p>
+        </div>
+
+	    <div class="mb-3">
+	        <form id="registerConfirmForm" th:action="@{/user/register}" th:object="${registerForm}" method="post">
+	            <input type="hidden" th:field="*{name}" />
+	            <input type="hidden" th:field="*{age}" />
+	            <input type="hidden" th:field="*{pass}" />
+	            <input type="hidden" th:field="*{confirmPass}" />
+	           
+	       </form>
+    	</div>
+    
+    	<div class="button-group">
+			<button type="submit" class="btn btn-primary" form="registerConfirmForm">登録</button>
+	        <a th:href="@{/user/register}" class="btn btn-secondary">戻る</a>
+    	</div>
+    	
+    </div>
+    
+ 	<div class="copyright">
+	 	<div th:replace="~{footer :: footer}"></div>
+	</div>  
+    
+</body>
+</html>

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/* メインコンテンツ */
+.container {
+    max-width: 100%; 
+    padding: 40px 0px; 
+    box-sizing: border-box; 
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.confirm-table { 
+    max-width: 100%;
+    margin-bottom: 30px; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 15px 15px; 
+    text-align: left;
+    font-size: 1.1em; 
+}
+
+.confirm-table th {
+    width: 100px; 
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 確認コメントのスタイル */
+.confirmation-message {
+    text-align: center;
+    margin-bottom: 30px; 
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+}
+.confirmation-message p {
+    margin: 0; 
+}
+
+/* ------------------------------------------------ */
+/* ボタンのスタイル            */
+/* ------------------------------------------------ */
+
+.button-group {
+    text-align: left;
+    margin-top: 40px; 
+}
+
+.button-group form {
+    display: inline-block; 
+    margin: 0; 
+    vertical-align: middle; 
+}
+
+.btn {
+    padding: 12px 0px; 
+    font-size: 17px; 
+    cursor: pointer;
+    text-decoration: none; 
+    display: inline-block; 
+    text-align: left; 
+    padding-left: 0px;
+    margin: 0 15px;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    min-width: 120px; 
+}
+
+/* プライマリボタン（登録する） */
+.btn-primary {
+    background-color: #ffc107; 
+    color: rgb(0, 0, 0); 
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* セカンダリボタン（戻る） */
+.btn-secondary {
+    background-color: rgb(254, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+}
+
